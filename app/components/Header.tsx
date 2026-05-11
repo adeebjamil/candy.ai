@@ -1,11 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Menu, Sparkles, X, Home, Compass, MessageCircle, Library, PlusCircle, User, Crown, HelpCircle, ChevronDown, Gem } from "lucide-react";
+import { Menu, Sparkles, X, Home, Compass, MessageCircle, Library, PlusCircle, User, Crown, HelpCircle, ChevronDown, Gem, Venus, Mars, RefreshCw } from "lucide-react";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -18,16 +31,49 @@ export function Header() {
           >
             <Menu className="w-6 h-6" />
           </button>
-          <div className="flex items-center gap-1 md:gap-3">
+          <div className="flex items-center gap-1 md:gap-3 relative" ref={dropdownRef}>
             <Link href="/" className="flex items-center gap-2 md:gap-3 group">
               <span className="font-black text-[20px] md:text-[24px] tracking-tight text-foreground">candy<span className="text-primary">.ai</span></span>
             </Link>
             
-            {/* Category Switcher - New */}
-            <div className="flex items-center gap-1 bg-surface px-2 py-1 rounded-lg cursor-pointer hover:bg-primary/5 transition-colors">
+            {/* Category Switcher */}
+            <div 
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className={`flex items-center gap-1 bg-surface px-2 py-1 rounded-lg cursor-pointer transition-all ${isDropdownOpen ? "ring-2 ring-primary/20 bg-primary/5" : "hover:bg-primary/5"}`}
+            >
               <Sparkles className="w-4 h-4 text-primary" />
-              <ChevronDown className="w-3 h-3 text-text-muted" />
+              <ChevronDown className={`w-3 h-3 text-text-muted transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
             </div>
+
+            {/* Category Dropdown */}
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-border py-2 animate-in fade-in zoom-in-95 duration-200 z-[60]">
+                <Link 
+                  href="/girls" 
+                  onClick={() => setIsDropdownOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 text-[14px] font-bold text-text-muted hover:text-primary hover:bg-surface transition-all"
+                >
+                  <Venus className="w-4 h-4 text-pink-500" />
+                  Girls
+                </Link>
+                <Link 
+                  href="/anime" 
+                  onClick={() => setIsDropdownOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 text-[14px] font-bold text-text-muted hover:text-primary hover:bg-surface transition-all"
+                >
+                  <RefreshCw className="w-4 h-4 text-purple-500" />
+                  Anime
+                </Link>
+                <Link 
+                  href="/guys" 
+                  onClick={() => setIsDropdownOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 text-[14px] font-bold text-text-muted hover:text-primary hover:bg-surface transition-all"
+                >
+                  <Mars className="w-4 h-4 text-blue-500" />
+                  Guys
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 
