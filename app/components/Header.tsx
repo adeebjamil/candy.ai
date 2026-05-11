@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, Sparkles, X, Home, Compass, MessageCircle, Library, PlusCircle, User, Crown, HelpCircle } from "lucide-react";
+import { Menu, Sparkles, X, Home, Compass, MessageCircle, Library, PlusCircle, User, Crown, HelpCircle, ChevronDown, Gem } from "lucide-react";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,12 +18,17 @@ export function Header() {
           >
             <Menu className="w-6 h-6" />
           </button>
-          <Link href="/" className="flex items-center gap-2 md:gap-3 group">
-            <div className="w-[32px] h-[32px] md:w-[36px] md:h-[36px] bg-gradient-to-tr from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg shadow-pink-200 group-hover:scale-110 transition-transform duration-300">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white fill-white" />
+          <div className="flex items-center gap-1 md:gap-3">
+            <Link href="/" className="flex items-center gap-2 md:gap-3 group">
+              <span className="font-black text-[20px] md:text-[24px] tracking-tight text-foreground">candy<span className="text-primary">.ai</span></span>
+            </Link>
+            
+            {/* Category Switcher - New */}
+            <div className="flex items-center gap-1 bg-surface px-2 py-1 rounded-lg cursor-pointer hover:bg-primary/5 transition-colors">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <ChevronDown className="w-3 h-3 text-text-muted" />
             </div>
-            <span className="font-black text-[20px] md:text-[24px] tracking-tight text-foreground">Candy<span className="text-primary">AI</span></span>
-          </Link>
+          </div>
         </div>
 
         {/* Center section: Categories (Hidden on mobile) */}
@@ -39,13 +44,15 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Right section: Auth Buttons */}
+        {/* Right section: Premium Button (Updated to match screenshot) */}
         <div className="flex items-center gap-3 md:gap-6">
-          <Link href="/register" className="hidden sm:block text-[15px] font-bold text-text-muted hover:text-primary transition-colors whitespace-nowrap">
-            Create Account
-          </Link>
-          <Link href="/login" className="text-[14px] md:text-[15px] font-bold bg-primary hover:bg-primary-hover text-white px-5 md:px-8 py-2 md:py-2.5 rounded-full transition-all whitespace-nowrap shadow-lg shadow-pink-100 hover:scale-[1.02] active:scale-[0.98]">
-            Login
+          <Link href="/premium" className="flex items-center gap-2 bg-foreground text-white px-3 md:px-6 py-2 rounded-full hover:opacity-90 transition-all shadow-lg shadow-pink-100">
+            <div className="w-5 h-5 bg-gradient-to-br from-purple-400 to-pink-500 rounded-md flex items-center justify-center">
+              <Gem className="w-3 h-3 text-white fill-white" />
+            </div>
+            <span className="text-[11px] md:text-[13px] font-black uppercase tracking-wider flex items-center gap-1">
+              Premium <span className="text-primary">70% OFF</span>
+            </span>
           </Link>
         </div>
       </header>

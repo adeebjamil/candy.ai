@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "./components/Sidebar";
 import { Header } from "./components/Header";
+import { BottomNav } from "./components/BottomNav";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -32,11 +33,12 @@ export default function RootLayout({
           </div>
           <div className="w-full flex-1 flex flex-col lg:pl-64">
             <Header />
-            <main className="flex-1">
+            <main className="flex-1 pb-20 lg:pb-0">
               {children}
             </main>
           </div>
         </div>
+        <BottomNav />
       </body>
     </html>
   );
