@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Search, Zap, PlayCircle } from "lucide-react";
+import { Sparkles, Search, Zap, PlayCircle, User } from "lucide-react";
 
 export default function GirlsPage() {
   const characters = [
