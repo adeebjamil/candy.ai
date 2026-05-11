@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, Sparkles, X, Home, Compass, MessageCircle, Library, PlusCircle, User } from "lucide-react";
+import { Menu, Sparkles, X, Home, Compass, MessageCircle, Library, PlusCircle, User, Crown, HelpCircle } from "lucide-react";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
