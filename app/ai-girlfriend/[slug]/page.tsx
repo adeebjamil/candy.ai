@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
@@ -21,11 +21,12 @@ import {
   ArrowRight
 } from "lucide-react";
 
-export default function CharacterPage({ params }: { params: { slug: string } }) {
+export default function CharacterPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const [message, setMessage] = useState("");
   const [activeTab, setActiveTab] = useState("chat");
 
-  const characterName = params.slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+  const characterName = slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
   return (
     <div className="flex flex-col h-[calc(100vh-72px)] md:h-screen bg-[#FAFAFA] overflow-hidden">
