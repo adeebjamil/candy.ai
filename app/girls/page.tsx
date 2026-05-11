@@ -13,30 +13,30 @@ export default function GirlsPage() {
   ];
 
   return (
-    <div className="flex flex-col flex-1 pb-24 bg-white">
-      <section className="w-full bg-surface py-20 px-8 relative overflow-hidden">
+    <div className="flex flex-col flex-1 pb-16 md:pb-24 bg-white">
+      <section className="w-full bg-surface py-12 md:py-20 px-6 md:px-8 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-2xl shadow-sm border border-border">
+          <div className="max-w-3xl space-y-4 md:space-y-6">
+            <div className="inline-flex items-center gap-2 bg-white px-3 md:px-4 py-1.5 md:py-2 rounded-2xl shadow-sm border border-border">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-[14px] font-bold text-primary tracking-wide uppercase">AI Girls</span>
+              <span className="text-[12px] md:text-[14px] font-bold text-primary tracking-wide uppercase">AI Girls</span>
             </div>
-            <h1 className="text-6xl font-black tracking-tight text-foreground leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-tight">
               Premium <br />
               <span className="text-gradient">AI Girlfriends</span>
             </h1>
-            <p className="text-xl text-text-muted font-medium leading-relaxed max-w-xl">
-              Connect with sweet, smart, and beautiful AI companions. Every girl has a unique personality waiting to be discovered.
+            <p className="text-lg md:text-xl text-text-muted font-medium leading-relaxed max-w-xl">
+              Connect with sweet, smart, and beautiful AI companions. Every girl has a unique personality.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-8 py-20 w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <section className="max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-20 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
           {characters.map((char) => (
-            <Link key={char.id} href={`/ai-girlfriend/${char.name.toLowerCase().replace(" ", "-")}`} className="group rounded-[2.5rem] overflow-hidden relative aspect-[3/4.5] bg-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <Link key={char.id} href={`/ai-girlfriend/${char.name.toLowerCase().replace(" ", "-")}`} className="group rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden relative aspect-[3/4.5] bg-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 md:hover:-translate-y-2">
               <Image 
                 src={char.image} 
                 alt={char.name}
@@ -44,15 +44,14 @@ export default function GirlsPage() {
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-              <div className="absolute bottom-0 left-0 w-full p-8 transform transition-transform duration-500 group-hover:-translate-y-2">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80]"></div>
-                  <span className="text-white/90 text-xs font-black uppercase tracking-widest">Active Now</span>
+              <div className="absolute bottom-0 left-0 w-full p-4 md:p-8 transform transition-transform duration-500 md:group-hover:-translate-y-2">
+                <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 md:mb-3">
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80]"></div>
+                  <span className="text-white/90 text-[8px] md:text-xs font-black uppercase tracking-widest">Active Now</span>
                 </div>
-                <h3 className="text-white font-black text-3xl tracking-tight leading-tight">{char.name}</h3>
-                <div className="mt-4 flex gap-2 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/30 whitespace-nowrap">Sweet</span>
-                  <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/30 whitespace-nowrap">Friendly</span>
+                <h3 className="text-white font-black text-lg md:text-3xl tracking-tight leading-tight">{char.name}</h3>
+                <div className="mt-2 md:mt-4 flex gap-1.5 md:gap-2 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="bg-white/20 backdrop-blur-md text-white text-[8px] md:text-[10px] font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-full border border-white/30 whitespace-nowrap">Sweet</span>
                 </div>
               </div>
             </Link>
