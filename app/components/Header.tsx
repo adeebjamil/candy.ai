@@ -60,23 +60,23 @@ export function Header() {
           ></div>
           
           {/* Menu Content */}
-          <div className="absolute left-0 top-0 h-full w-[280px] bg-white shadow-2xl flex flex-col p-6 animate-in slide-in-from-left duration-300">
+          <div className="absolute left-0 top-0 h-full w-[300px] bg-white shadow-2xl flex flex-col p-6 animate-in slide-in-from-left duration-300">
             <div className="flex items-center justify-between mb-8">
               <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
                 <div className="w-[30px] h-[30px] bg-gradient-to-tr from-primary to-secondary rounded-lg flex items-center justify-center">
                   <Sparkles className="w-4 h-4 text-white fill-white" />
                 </div>
-                <span className="font-black text-xl tracking-tight">CandyAI</span>
+                <span className="font-black text-xl tracking-tight text-foreground">CandyAI</span>
               </Link>
               <button 
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 hover:bg-surface rounded-xl text-text-muted"
+                className="p-2 hover:bg-surface rounded-xl text-text-muted transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
             </div>
 
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-1 overflow-y-auto pr-2 custom-scrollbar">
               <Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-semibold text-primary bg-surface transition-all">
                 <Home className="w-5 h-5" />
                 Home
@@ -85,19 +85,6 @@ export function Header() {
                 <Compass className="w-5 h-5" />
                 Discover
               </Link>
-              <Link href="/girls" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-medium text-text-muted hover:bg-surface hover:text-primary transition-all">
-                <Sparkles className="w-5 h-5" />
-                Girls
-              </Link>
-              <Link href="/anime" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-medium text-text-muted hover:bg-surface hover:text-primary transition-all">
-                <Sparkles className="w-5 h-5" />
-                Anime
-              </Link>
-              <Link href="/guys" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-medium text-text-muted hover:bg-surface hover:text-primary transition-all">
-                <Sparkles className="w-5 h-5" />
-                Guys
-              </Link>
-              <hr className="my-2 border-border" />
               <Link href="/chat" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-medium text-text-muted hover:bg-surface hover:text-primary transition-all">
                 <MessageCircle className="w-5 h-5" />
                 Chat
@@ -114,13 +101,34 @@ export function Header() {
                 <User className="w-5 h-5" />
                 My AI
               </Link>
+              
+              {/* Mobile Premium CTA - White background */}
+              <div className="mt-6 bg-white border-2 border-primary/20 rounded-3xl p-5 flex flex-col items-center text-center cursor-pointer shadow-xl shadow-pink-50">
+                <Crown className="w-24 h-24 text-primary/10 absolute -top-4 -right-4 rotate-12 pointer-events-none" />
+                <Crown className="w-6 h-6 text-primary mb-2 fill-primary/10" />
+                <span className="text-[16px] font-bold text-foreground mb-1">Premium</span>
+                <span className="text-[12px] bg-primary text-white font-black px-3 py-1 rounded-full uppercase tracking-wider">-70%</span>
+              </div>
+
+              <div className="h-4"></div>
+              
+              <Link href="/help" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[14px] font-medium text-text-muted hover:text-primary transition-colors">
+                <HelpCircle className="w-5 h-5" />
+                Help Center
+              </Link>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[14px] font-medium text-text-muted hover:text-primary transition-colors">
+                <div className="w-5 h-5 bg-foreground rounded-full flex items-center justify-center text-white font-bold text-[10px]">
+                  N
+                </div>
+                Contact Us
+              </Link>
             </nav>
 
-            <div className="mt-auto pt-6">
+            <div className="mt-auto pt-6 border-t border-border">
               <Link href="/register" onClick={() => setIsMenuOpen(false)} className="w-full flex items-center justify-center py-3 rounded-2xl font-bold text-primary border border-primary/20 mb-3">
                 Create Account
               </Link>
-              <Link href="/login" onClick={() => setIsMenuOpen(false)} className="w-full flex items-center justify-center py-3 rounded-2xl font-bold text-white bg-primary">
+              <Link href="/login" onClick={() => setIsMenuOpen(false)} className="w-full flex items-center justify-center py-3 rounded-2xl font-bold text-white bg-primary shadow-lg shadow-pink-100">
                 Login
               </Link>
             </div>

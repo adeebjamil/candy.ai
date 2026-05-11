@@ -34,11 +34,11 @@ export function Sidebar() {
           My AI
         </Link>
         
-        {/* Premium CTA */}
-        <div className="mt-8 bg-gradient-to-br from-primary to-secondary rounded-3xl p-5 flex flex-col items-center text-center cursor-pointer hover:scale-[1.02] transition-transform duration-300 shadow-lg shadow-pink-200">
-          <Crown className="w-[28px] h-[28px] text-white mb-2 fill-white/20" />
-          <span className="text-[16px] font-bold text-white mb-1">Premium</span>
-          <span className="text-[12px] bg-white/20 backdrop-blur-md text-white font-black px-3 py-1 rounded-full uppercase tracking-wider">70% Off</span>
+        {/* Premium CTA - White background as requested */}
+        <div className="mt-8 bg-white border-2 border-primary/20 rounded-3xl p-5 flex flex-col items-center text-center cursor-pointer hover:border-primary/50 transition-all duration-300 shadow-xl shadow-pink-50">
+          <Crown className="w-[28px] h-[28px] text-primary mb-2 fill-primary/10" />
+          <span className="text-[16px] font-bold text-foreground mb-1">Premium</span>
+          <span className="text-[12px] bg-primary text-white font-black px-3 py-1 rounded-full uppercase tracking-wider">-70%</span>
         </div>
       </nav>
 
@@ -49,7 +49,7 @@ export function Sidebar() {
           Help Center
         </Link>
         <Link href="/contact" className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[14px] font-medium text-text-muted hover:text-primary transition-colors group">
-          <div className="w-[20px] h-[20px] bg-primary rounded-full flex items-center justify-center text-white font-bold text-[10px]">
+          <div className="w-[20px] h-[20px] bg-foreground rounded-full flex items-center justify-center text-white font-bold text-[10px]">
             N
           </div>
           Contact Us
