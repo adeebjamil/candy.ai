@@ -3,39 +3,39 @@ import { Menu, Sparkles } from "lucide-react";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full h-[60px] bg-white backdrop-blur-md border-b border-[#EAEAEA] flex items-center justify-between px-6 relative">
+    <header className="sticky top-0 z-50 w-full h-[72px] glass border-b border-border flex items-center justify-between px-8">
       {/* Left section: Mobile menu & Logo */}
-      <div className="flex items-center gap-3">
-        <button className="lg:hidden text-gray-700 hover:bg-gray-100 p-2 rounded-lg">
-          <Menu className="w-5 h-5" />
+      <div className="flex items-center gap-4">
+        <button className="lg:hidden text-text-muted hover:bg-surface p-2 rounded-xl transition-colors">
+          <Menu className="w-6 h-6" />
         </button>
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-[30px] h-[30px] bg-gradient-to-tr from-button-secondary to-primary rounded-lg flex items-center justify-center text-white font-extrabold text-sm ml-2">
-            <Sparkles className="w-4 h-4 text-white fill-white" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-[36px] h-[36px] bg-gradient-to-tr from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg shadow-pink-200 group-hover:scale-110 transition-transform duration-300">
+            <Sparkles className="w-5 h-5 text-white fill-white" />
           </div>
-          <span className="font-extrabold text-[22px] tracking-tight text-black">CandyAI</span>
+          <span className="font-black text-[24px] tracking-tight text-foreground">Candy<span className="text-primary">AI</span></span>
         </Link>
       </div>
 
       {/* Center section: Categories (Hidden on mobile) */}
-      <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-        <Link href="/girls" className="text-[14px] font-bold text-black border-b-[3px] border-[#F4C2C2] py-[19px]">
+      <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+        <Link href="/girls" className="text-[15px] font-bold text-primary border-b-2 border-primary h-[72px] flex items-center">
           Girls
         </Link>
-        <Link href="/anime" className="text-[14px] font-bold text-[#64748b] hover:text-black">
+        <Link href="/anime" className="text-[15px] font-semibold text-text-muted hover:text-primary transition-colors h-[72px] flex items-center">
           Anime
         </Link>
-        <Link href="/guys" className="text-[14px] font-bold text-[#64748b] hover:text-black">
+        <Link href="/guys" className="text-[15px] font-semibold text-text-muted hover:text-primary transition-colors h-[72px] flex items-center">
           Guys
         </Link>
       </nav>
 
       {/* Right section: Auth Buttons */}
-      <div className="flex items-center gap-4">
-        <Link href="/register" className="hidden sm:flex text-[14px] font-extrabold items-center hover:opacity-70 transition-opacity whitespace-nowrap">
-          Create Free Account
+      <div className="flex items-center gap-6">
+        <Link href="/register" className="hidden sm:block text-[15px] font-bold text-text-muted hover:text-primary transition-colors whitespace-nowrap">
+          Create Account
         </Link>
-        <Link href="/login" className="text-[14px] font-extrabold bg-[#fbcfe8] hover:bg-[#F4C2C2] text-white px-6 py-2 rounded-full transition-colors whitespace-nowrap shadow-sm">
+        <Link href="/login" className="text-[15px] font-bold bg-primary hover:bg-primary-hover text-white px-8 py-2.5 rounded-full transition-all whitespace-nowrap shadow-lg shadow-pink-100 hover:scale-[1.02] active:scale-[0.98]">
           Login
         </Link>
       </div>

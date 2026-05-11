@@ -1,23 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffff;
-  --foreground: #DAF9DE;
-  /* --primary: #F4C2C2; */
-  --primary: #F9B2D7;
-  --secondary: #CFECF3;
-  --button-primary: #F6FFDC;
-  --button-secondary: #F6FFDC;
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --primary: #FF4B91;
+  --primary-hover: #E63D82;
+  --secondary: #FF8E9E;
+  --accent: #FFB7C5;
+  --surface: #FFF5F8;
+  --border: #FCE4EC;
+  --text-muted: #666666;
+  --shadow-pink: rgba(255, 75, 145, 0.2);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
-  --color-button-primary: var(--button-primary);
-  --color-button-secondary: var(--button-secondary);
-  --font-sans: var(--font-outfit), Arial, sans-serif;
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text-muted: var(--text-muted);
+  --font-sans: var(--font-outfit), Inter, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,7 +36,26 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.pink-glow {
+  box-shadow: 0 0 20px var(--shadow-pink);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @layer utilities {
