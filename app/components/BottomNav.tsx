@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Compass, PlusSquare, MessageCircle, Crown } from "lucide-react";
+import { Home, Compass, Wand2, MessageCircle, Crown, Gem } from "lucide-react";
 
 export function BottomNav() {
   const pathname = usePathname();
@@ -10,9 +10,9 @@ export function BottomNav() {
   const navItems = [
     { name: "Home", icon: Home, href: "/" },
     { name: "Discover", icon: Compass, href: "/discover" },
-    { name: "Create", icon: PlusSquare, href: "/create" },
+    { name: "Create", icon: Wand2, href: "/create" },
     { name: "Chat", icon: MessageCircle, href: "/chat" },
-    { name: "Premium", icon: Crown, href: "/premium", isPremium: true },
+    { name: "Premium", icon: Gem, href: "/premium", isPremium: true },
   ];
 
   return (

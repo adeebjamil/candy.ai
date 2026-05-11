@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Link from "next/link";
-import { Home, Compass, MessageCircle, Library, PlusCircle, User, Crown, HelpCircle } from "lucide-react";
+import { Home, Compass, MessageCircle, Library, PlusCircle, User, Crown, HelpCircle, Rss } from "lucide-react";
 
 export function Sidebar() {
   return (
@@ -16,6 +16,10 @@ export function Sidebar() {
         <Link href="/discover" className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-medium text-text-muted hover:bg-surface hover:text-primary transition-all duration-300 group">
           <Compass className="w-[20px] h-[20px] group-hover:text-primary" />
           Discover
+        </Link>
+        <Link href="/feed" className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-medium text-text-muted hover:bg-surface hover:text-primary transition-all duration-300 group">
+          <Rss className="w-[20px] h-[20px] group-hover:text-primary" />
+          Feed
         </Link>
         <Link href="/chat" className="flex items-center gap-3 px-4 py-3 rounded-2xl text-[15px] font-medium text-text-muted hover:bg-surface hover:text-primary transition-all duration-300 group">
           <MessageCircle className="w-[20px] h-[20px] group-hover:text-primary" />
